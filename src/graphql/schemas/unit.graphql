@@ -1,0 +1,23 @@
+scalar Date
+
+type UnitPositionOutput{
+    date_time: Date 
+    unit_id: Int    
+    latitude: Float  
+    longitude: Float 
+    speed: Float     
+    bearing: Float   
+    hdop: Float      
+    satellites: Int
+    created: Date
+
+}
+
+type Query {
+    getUnitPosition: [UnitPositionOutput]
+    getUnitPositionById(id:String): UnitPositionOutput
+} 
+
+type Mutation{
+    deleteUnitPosition(id:String):Boolean
+}
