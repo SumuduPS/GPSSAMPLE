@@ -15,9 +15,4 @@ type UnitPositionOutput{
 
 type Query {
     getUnitPosition: [UnitPositionOutput]
-    getUnitPositionById(id:String): UnitPositionOutput
 } 
-
-type Mutation{
-    deleteUnitPosition(id:String):Boolean
-}

@@ -7,13 +7,8 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export interface IMutation {
-    deleteUnitPosition(id?: string): boolean | Promise<boolean>;
-}
-
 export interface IQuery {
     getUnitPosition(): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
-    getUnitPositionById(id?: string): UnitPositionOutput | Promise<UnitPositionOutput>;
 }
 
 export interface UnitPositionOutput {

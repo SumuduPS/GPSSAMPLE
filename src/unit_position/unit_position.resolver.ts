@@ -12,22 +12,4 @@ export class UnitPositionResolver {
     return this.unitPositionService.findAll();
   }
 
-// // @Mutation()
-// // async createPost(
-// //   @Args('createPostInput') createPostInput: PostInput){
-// //   return this.postsService.create(createPostInput);
-// // }
-
-// @Query()
-// async getPostByID(
-//   @Args('id') id: string){
-//   return this.unitPositionService.findOne(id);
-// }
-
-@Mutation()
-async deletePost(
-  @Args('id') id: string){
-  return this.unitPositionService.remove(id);
-}
-
 }

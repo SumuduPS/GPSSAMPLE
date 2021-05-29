@@ -7,9 +7,11 @@ import {PostsModule} from './unit_position/unit_position.module';
 import { join } from 'path';
 import { GraphQLFederationModule } from '@nestjs/graphql';
 import { DateScalar } from './graphql/scalar/DateScalar';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     GraphQLFederationModule.forRoot({
       typePaths: ['./**/*.graphql'],
       definitions: {
@@ -18,11 +20,11 @@ import { DateScalar } from './graphql/scalar/DateScalar';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: process.env.DB_HOST,
       port: 5432,
-      username: 'postgres',
-      password: 'password',
-      database: 'GPSSample',
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [UnitPosition],
       synchronize: true,
     }),
