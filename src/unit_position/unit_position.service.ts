@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UnitPosition } from './unit_position.entity';
 import {UnitPositionOutput} from '../graphql';
-// import {PostInput} from '../graphql'; 
+import {UnitPositionInput} from '../graphql'; 
 
 @Injectable()
 export class UnitPositionService {
@@ -14,5 +14,9 @@ export class UnitPositionService {
 
   async findAll(): Promise<UnitPositionOutput[]> {
     return this.unitPositionRepository.find();
+  }
+
+  create(unitPositionInput: UnitPositionInput): Promise<UnitPositionOutput> {
+    return this.unitPositionRepository.save(unitPositionInput);
   }
 }

@@ -13,6 +13,22 @@ type UnitPositionOutput{
 
 }
 
+input UnitPositionInput{
+    date_time: Date 
+    unit_id: Int    
+    latitude: Float  
+    longitude: Float 
+    speed: Float     
+    bearing: Float   
+    hdop: Float      
+    satellites: Int
+    created: Date
+}
+
 type Query {
     getUnitPosition: [UnitPositionOutput]
 } 
+
+type Mutation{
+    addUnitPosition(unitPositionInput:UnitPositionInput):UnitPositionOutput
+}
