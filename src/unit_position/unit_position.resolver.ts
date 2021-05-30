@@ -9,7 +9,6 @@ export class UnitPositionResolver {
 
   @Query()
   async getUnitPosition() {
-    // console.log('getUnitPosition')
     return this.unitPositionService.findAll();
   }
 
