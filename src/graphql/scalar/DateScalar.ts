@@ -10,7 +10,7 @@ export class DateScalar implements CustomScalar<String, Date> {
   }
 
   serialize(value: Date): String {
-    return value.toLocaleDateString().toString() // value sent to the client
+    return value.toUTCString().toString() // value sent to the client
   }
 
   parseLiteral(ast: ValueNode): Date {

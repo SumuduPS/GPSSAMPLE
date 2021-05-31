@@ -9,4 +9,4 @@ import {UnitPositionResolver} from './unit_position.resolver';
   providers: [UnitPositionService,UnitPositionResolver],
   controllers: [],
 })
-export class PostsModule {}
+export class UnitPositionModule {}

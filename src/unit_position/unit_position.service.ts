@@ -19,4 +19,13 @@ export class UnitPositionService {
   create(unitPositionInput: UnitPositionInput): Promise<UnitPositionOutput> {
     return this.unitPositionRepository.save(unitPositionInput);
   }
+
+  // async remove(id: string): Promise<Boolean> {
+  //   const deletedStatus=await this.unitPositionRepository.delete(id);
+  //   if(deletedStatus.affected>0){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
 }

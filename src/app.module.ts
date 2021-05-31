@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {UnitPosition} from './unit_position/unit_position.entity';
-import {PostsModule} from './unit_position/unit_position.module';
+import {UnitPositionModule} from './unit_position/unit_position.module';
 import { join } from 'path';
 import { GraphQLFederationModule } from '@nestjs/graphql';
 import { DateScalar } from './graphql/scalar/DateScalar';
@@ -28,7 +28,7 @@ import { ConfigModule } from '@nestjs/config';
       entities: [UnitPosition],
       synchronize: true,
     }),
-    PostsModule
+    UnitPositionModule
   ],
   controllers: [AppController],
   providers: [AppService,DateScalar],
