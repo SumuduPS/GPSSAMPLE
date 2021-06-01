@@ -26,6 +26,6 @@ export class UnitPosition {
   @Column({ type: 'smallint'})
   satellites: number;
 
-  @Column({ type: 'timestamp'})
+  @Column({ type: 'timestamp'} )
   created: Date;
 }

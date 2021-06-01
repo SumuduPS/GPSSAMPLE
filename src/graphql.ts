@@ -16,7 +16,6 @@ export interface UnitPositionInput {
     bearing?: number;
     hdop?: number;
     satellites?: number;
-    created?: Date;
 }
 
 export interface UnitPowerInput {
@@ -37,13 +36,16 @@ export interface UnitStatusInput {
 }
 
 export interface IMutation {
-    addUnitPosition(unitPositionInput?: UnitPositionInput): UnitPositionOutput | Promise<UnitPositionOutput>;
+    addUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
+    updateUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
+    deleteUnitPosition(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
     addUnitPower(unitPositionInput?: UnitPowerInput): UnitPowerOutput | Promise<UnitPowerOutput>;
     addUnitStatus(unitStatusInput?: UnitStatusInput): UnitStatusOutput | Promise<UnitStatusOutput>;
 }
 
 export interface IQuery {
     getUnitPosition(): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
+    getUnitPositionById(unit_id?: number, date_time?: Date): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
     getUnitPower(): UnitPowerOutput[] | Promise<UnitPowerOutput[]>;
     getUnitStatus(): UnitStatusOutput[] | Promise<UnitStatusOutput[]>;
 }

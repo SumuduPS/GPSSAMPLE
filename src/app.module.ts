@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {UnitPosition} from './unit_position/unit_position.entity';
@@ -36,7 +35,7 @@ import { UnitStatus } from './unit_status/unit_status.entity';
     UnitPowerModule,
     UnitStatusModule
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService,DateScalar],
 })
 export class AppModule {}

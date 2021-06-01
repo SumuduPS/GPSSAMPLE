@@ -10,7 +10,6 @@ type UnitPositionOutput{
     hdop: Float      
     satellites: Int
     created: Date
-
 }
 
 input UnitPositionInput{
@@ -22,13 +21,15 @@ input UnitPositionInput{
     bearing: Float   
     hdop: Float      
     satellites: Int
-    created: Date
 }
 
 type Query {
     getUnitPosition: [UnitPositionOutput]
+    getUnitPositionById(unit_id:Int,date_time:Date):[UnitPositionOutput]
 } 
 
 type Mutation{
-    addUnitPosition(unitPositionInput:UnitPositionInput):UnitPositionOutput
+    addUnitPosition(unitPositionInput:UnitPositionInput):String
+    updateUnitPosition(unitPositionInput:UnitPositionInput):String
+    deleteUnitPosition(unit_id:Int,date_time:Date):Boolean
 }
