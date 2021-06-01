@@ -1,0 +1,25 @@
+scalar Date
+
+type UnitStatusOutput{
+    date_time: Date 
+    unit_id: Int    
+    msg_type:Int
+    msg: String
+    created: Date
+}
+
+input UnitStatusInput{
+    date_time: Date 
+    unit_id: Int    
+    msg_type:Int
+    msg: String
+    created: Date
+}
+
+type Query {
+    getUnitStatus: [UnitStatusOutput]
+} 
+
+type Mutation{
+    addUnitStatus(unitStatusInput:UnitStatusInput):UnitStatusOutput
+}

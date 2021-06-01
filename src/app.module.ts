@@ -10,6 +10,8 @@ import { DateScalar } from './graphql/scalar/DateScalar';
 import { ConfigModule } from '@nestjs/config';
 import { UnitPowerModule } from './unit_power/unit_power.module';
 import { UnitPower } from './unit_power/unit_power.entity';
+import { UnitStatusModule } from './unit_status/unit_status.module';
+import { UnitStatus } from './unit_status/unit_status.entity';
 
 @Module({
   imports: [
@@ -27,11 +29,12 @@ import { UnitPower } from './unit_power/unit_power.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [UnitPosition,UnitPower],
+      entities: [UnitPosition,UnitPower,UnitStatus],
       synchronize: true,
     }),
     UnitPositionModule,
-    UnitPowerModule
+    UnitPowerModule,
+    UnitStatusModule
   ],
   controllers: [AppController],
   providers: [AppService,DateScalar],

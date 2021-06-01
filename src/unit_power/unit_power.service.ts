@@ -13,7 +13,7 @@ export class UnitPowerService {
   ) {}
 
   async getUnitPower(): Promise<UnitPowerOutput[]> {
-    return this.unitPowerRepository.find();
+    return await this.unitPowerRepository.find();
   }
 
   addUnitPower(unitPowerInput: UnitPowerInput): Promise<UnitPowerOutput> {

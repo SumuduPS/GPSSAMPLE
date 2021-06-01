@@ -28,14 +28,24 @@ export interface UnitPowerInput {
     created?: Date;
 }
 
+export interface UnitStatusInput {
+    date_time?: Date;
+    unit_id?: number;
+    msg_type?: number;
+    msg?: string;
+    created?: Date;
+}
+
 export interface IMutation {
     addUnitPosition(unitPositionInput?: UnitPositionInput): UnitPositionOutput | Promise<UnitPositionOutput>;
     addUnitPower(unitPositionInput?: UnitPowerInput): UnitPowerOutput | Promise<UnitPowerOutput>;
+    addUnitStatus(unitStatusInput?: UnitStatusInput): UnitStatusOutput | Promise<UnitStatusOutput>;
 }
 
 export interface IQuery {
     getUnitPosition(): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
     getUnitPower(): UnitPowerOutput[] | Promise<UnitPowerOutput[]>;
+    getUnitStatus(): UnitStatusOutput[] | Promise<UnitStatusOutput[]>;
 }
 
 export interface UnitPositionOutput {
@@ -56,5 +66,13 @@ export interface UnitPowerOutput {
     main?: number;
     solar?: number;
     micro?: number;
+    created?: Date;
+}
+
+export interface UnitStatusOutput {
+    date_time?: Date;
+    unit_id?: number;
+    msg_type?: number;
+    msg?: string;
     created?: Date;
 }

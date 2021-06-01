@@ -13,7 +13,7 @@ export class UnitPositionService {
   ) {}
 
   async getUnitPosition(): Promise<UnitPositionOutput[]> {
-    return this.unitPositionRepository.find();
+    return await this.unitPositionRepository.find();
   }
 
   addUnitPosition(unitPositionInput: UnitPositionInput): Promise<UnitPositionOutput> {
