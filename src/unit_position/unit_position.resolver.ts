@@ -9,14 +9,14 @@ export class UnitPositionResolver {
 
   @Query()
   async getUnitPosition() {
-    return this.unitPositionService.findAll();
+    return this.unitPositionService.getUnitPosition();
   }
 
   @Mutation()
   async addUnitPosition(
     @Args('unitPositionInput') unitPositionInput: UnitPositionInput
   ){
-    return this.unitPositionService.create(unitPositionInput);
+    return this.unitPositionService.addUnitPosition(unitPositionInput);
   }
-
+  
 }

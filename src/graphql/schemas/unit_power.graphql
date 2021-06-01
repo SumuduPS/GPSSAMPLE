@@ -1,0 +1,27 @@
+scalar Date
+
+type UnitPowerOutput{
+    date_time: Date 
+    unit_id: Int    
+    main: Float  
+    solar: Float 
+    micro: Float     
+    created: Date
+}
+
+input UnitPowerInput{
+    date_time: Date 
+    unit_id: Int    
+    main: Float  
+    solar: Float 
+    micro: Float     
+    created: Date
+}
+
+type Query {
+    getUnitPower: [UnitPowerOutput]
+} 
+
+type Mutation{
+    addUnitPower(unitPositionInput:UnitPowerInput):UnitPowerOutput
+}

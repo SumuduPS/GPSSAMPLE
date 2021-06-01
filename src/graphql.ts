@@ -19,12 +19,23 @@ export interface UnitPositionInput {
     created?: Date;
 }
 
+export interface UnitPowerInput {
+    date_time?: Date;
+    unit_id?: number;
+    main?: number;
+    solar?: number;
+    micro?: number;
+    created?: Date;
+}
+
 export interface IMutation {
     addUnitPosition(unitPositionInput?: UnitPositionInput): UnitPositionOutput | Promise<UnitPositionOutput>;
+    addUnitPower(unitPositionInput?: UnitPowerInput): UnitPowerOutput | Promise<UnitPowerOutput>;
 }
 
 export interface IQuery {
     getUnitPosition(): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
+    getUnitPower(): UnitPowerOutput[] | Promise<UnitPowerOutput[]>;
 }
 
 export interface UnitPositionOutput {
@@ -36,5 +47,14 @@ export interface UnitPositionOutput {
     bearing?: number;
     hdop?: number;
     satellites?: number;
+    created?: Date;
+}
+
+export interface UnitPowerOutput {
+    date_time?: Date;
+    unit_id?: number;
+    main?: number;
+    solar?: number;
+    micro?: number;
     created?: Date;
 }

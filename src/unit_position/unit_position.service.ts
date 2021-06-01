@@ -12,11 +12,11 @@ export class UnitPositionService {
     private readonly unitPositionRepository: Repository<UnitPosition>,
   ) {}
 
-  async findAll(): Promise<UnitPositionOutput[]> {
+  async getUnitPosition(): Promise<UnitPositionOutput[]> {
     return this.unitPositionRepository.find();
   }
 
-  create(unitPositionInput: UnitPositionInput): Promise<UnitPositionOutput> {
+  addUnitPosition(unitPositionInput: UnitPositionInput): Promise<UnitPositionOutput> {
     return this.unitPositionRepository.save(unitPositionInput);
   }
 

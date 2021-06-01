@@ -8,6 +8,8 @@ import { join } from 'path';
 import { GraphQLFederationModule } from '@nestjs/graphql';
 import { DateScalar } from './graphql/scalar/DateScalar';
 import { ConfigModule } from '@nestjs/config';
+import { UnitPowerModule } from './unit_power/unit_power.module';
+import { UnitPower } from './unit_power/unit_power.entity';
 
 @Module({
   imports: [
@@ -25,10 +27,11 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [UnitPosition],
+      entities: [UnitPosition,UnitPower],
       synchronize: true,
     }),
-    UnitPositionModule
+    UnitPositionModule,
+    UnitPowerModule
   ],
   controllers: [AppController],
   providers: [AppService,DateScalar],
