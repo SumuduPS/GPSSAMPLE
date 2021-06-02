@@ -28,14 +28,14 @@ export class UnitPowerResolver {
   }
 
   @Mutation()
-  async updateUnitPosition(
+  async updateUnitPower(
     @Args('unitPowerInput') unitPowerInput: UnitPowerInput)
     {
       return this.unitPowerService.updateUnitPower(unitPowerInput);
   }
 
   @Mutation()
-  async deleteUnitPosition(
+  async deleteUnitPower(
     @Args('unit_id') unit_id: number,
     @Args('date_time') date_time?: Date
   ){

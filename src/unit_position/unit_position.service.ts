@@ -51,7 +51,7 @@ export class UnitPositionService {
       confirmationMessage="Record does not Exsist!";
     }else{
       const results=await this.unitPositionRepository.save(unitPositionInput)
-      confirmationMessage="Created record unit_id: "+results.unit_id +" & date_time: "+results.date_time;
+      confirmationMessage="Updated record unit_id: "+results.unit_id +" & date_time: "+results.date_time;
       
     }
     return confirmationMessage;
