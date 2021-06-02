@@ -15,13 +15,15 @@ input UnitPowerInput{
     main: Float  
     solar: Float 
     micro: Float     
-    created: Date
 }
 
 type Query {
     getUnitPower: [UnitPowerOutput]
+    getUnitPowerById(unit_id:Int,date_time:Date):[UnitPowerOutput]
 } 
 
 type Mutation{
-    addUnitPower(unitPositionInput:UnitPowerInput):UnitPowerOutput
+    addUnitPower(unitPowerInput:UnitPowerInput):String
+    updateUnitPower(unitPowerInput:UnitPowerInput):String
+    deleteUnitPower(unit_id:Int,date_time:Date):Boolean
 }

@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import {UnitPowerService} from './unit_power.service';
-import {UnitPositionInput} from '../graphql'; 
+import {UnitPowerInput} from '../graphql'; 
 
 @Resolver('UnitPower')
 export class UnitPowerResolver {
@@ -11,11 +11,35 @@ export class UnitPowerResolver {
     return this.unitPowerService.getUnitPower();
   }
 
+  @Query()
+  async getUnitPowerById(
+    @Args('unit_id') unit_id: number,
+    @Args('date_time') date_time?: Date
+    ){
+    return this.unitPowerService.getUnitPowerById(unit_id,date_time);
+  }
+
+
   @Mutation()
   async addUnitPower(
-    @Args('unitPowerInput') unitPowerInput: UnitPositionInput
+    @Args('unitPowerInput') unitPowerInput: UnitPowerInput
   ){
     return this.unitPowerService.addUnitPower(unitPowerInput);
   }
-  
+
+  @Mutation()
+  async updateUnitPosition(
+    @Args('unitPowerInput') unitPowerInput: UnitPowerInput)
+    {
+      return this.unitPowerService.updateUnitPower(unitPowerInput);
+  }
+
+  @Mutation()
+  async deleteUnitPosition(
+    @Args('unit_id') unit_id: number,
+    @Args('date_time') date_time?: Date
+  ){
+    return this.unitPowerService.deleteUnitPower(unit_id,date_time);
+  }
+
 }

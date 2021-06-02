@@ -24,7 +24,6 @@ export interface UnitPowerInput {
     main?: number;
     solar?: number;
     micro?: number;
-    created?: Date;
 }
 
 export interface UnitStatusInput {
@@ -32,22 +31,27 @@ export interface UnitStatusInput {
     unit_id?: number;
     msg_type?: number;
     msg?: string;
-    created?: Date;
 }
 
 export interface IMutation {
     addUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
     updateUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
     deleteUnitPosition(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
-    addUnitPower(unitPositionInput?: UnitPowerInput): UnitPowerOutput | Promise<UnitPowerOutput>;
-    addUnitStatus(unitStatusInput?: UnitStatusInput): UnitStatusOutput | Promise<UnitStatusOutput>;
+    addUnitPower(unitPowerInput?: UnitPowerInput): string | Promise<string>;
+    updateUnitPower(unitPowerInput?: UnitPowerInput): string | Promise<string>;
+    deleteUnitPower(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
+    addUnitStatus(unitStatusInput?: UnitStatusInput): string | Promise<string>;
+    updateUnitStatus(unitStatusInput?: UnitStatusInput): string | Promise<string>;
+    deleteUnitStatus(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
 }
 
 export interface IQuery {
     getUnitPosition(): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
     getUnitPositionById(unit_id?: number, date_time?: Date): UnitPositionOutput[] | Promise<UnitPositionOutput[]>;
     getUnitPower(): UnitPowerOutput[] | Promise<UnitPowerOutput[]>;
+    getUnitPowerById(unit_id?: number, date_time?: Date): UnitPowerOutput[] | Promise<UnitPowerOutput[]>;
     getUnitStatus(): UnitStatusOutput[] | Promise<UnitStatusOutput[]>;
+    getUnitStatusById(unit_id?: number, date_time?: Date): UnitStatusOutput[] | Promise<UnitStatusOutput[]>;
 }
 
 export interface UnitPositionOutput {

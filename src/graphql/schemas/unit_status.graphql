@@ -13,13 +13,15 @@ input UnitStatusInput{
     unit_id: Int    
     msg_type:Int
     msg: String
-    created: Date
 }
 
 type Query {
     getUnitStatus: [UnitStatusOutput]
+    getUnitStatusById(unit_id:Int,date_time:Date):[UnitStatusOutput]
 } 
 
 type Mutation{
-    addUnitStatus(unitStatusInput:UnitStatusInput):UnitStatusOutput
+    addUnitStatus(unitStatusInput:UnitStatusInput):String
+    updateUnitStatus(unitStatusInput:UnitStatusInput):String
+    deleteUnitStatus(unit_id:Int,date_time:Date):Boolean
 }
