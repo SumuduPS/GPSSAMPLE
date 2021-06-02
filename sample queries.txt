@@ -1,0 +1,114 @@
+query{
+  getUnitPosition{
+    date_time 
+    unit_id   
+    latitude  
+    longitude 
+    speed     
+    bearing   
+    hdop      
+    satellites
+    created   
+  }
+}
+
+mutation{
+addUnitPosition(unitPositionInput:{
+    date_time:"6/2/2021" 
+    unit_id:20   
+    latitude:-104.0392
+    longitude: 50.9655
+    speed: 0     
+    bearing: 91.2
+    hdop: 12     
+    satellites:8  
+})
+}
+
+mutation{
+updateUnitPosition(unitPositionInput:{
+    date_time:"6/2/2021" 
+    unit_id:20   
+    latitude:-104.0392
+    longitude: 60.9655
+    speed: 0     
+    bearing: 91.2
+    hdop: 12     
+    satellites:8  
+})
+}
+
+mutation{
+deleteUnitPosition(unit_id:20)
+}
+
+query {
+  getUnitPower {
+    unit_id
+    date_time
+    main
+    solar
+    micro
+    created
+  }
+}
+
+mutation{
+  addUnitPower(unitPowerInput:{
+    unit_id:5
+    date_time:"6/2/2021"
+    main:24.7
+    solar:0
+    micro:4.16
+  })
+}
+
+
+mutation{
+  updateUnitPower(unitPowerInput:{
+    unit_id:5
+    date_time:"6/2/2021"
+    main:24.7
+    solar:0
+    micro:4.24
+  })
+}
+
+mutation{
+deleteUnitPower(unit_id:5)
+}
+
+
+
+query{
+  getUnitStatus{
+    date_time
+    unit_id  
+    msg_type 
+    msg      
+    created  
+
+  }
+}
+
+mutation{
+addUnitStatus(unitStatusInput:{
+  date_time:"6/2/2022"
+    unit_id:4  
+    msg_type:33 
+    msg:"GPS off"      
+})
+}
+
+mutation{
+updateUnitStatus(unitStatusInput:{
+  date_time:"6/2/2022"
+    unit_id:4  
+    msg_type:33 
+    msg:"GPS off"      
+})
+}
+
+mutation{
+deleteUnitStatus(unit_id:4 date_time:"2022-6-1 18:30:0")
+}

@@ -87,7 +87,8 @@ export class UnitStatusService {
   async deleteUnitStatus(unit_id: number,date_time?:Date): Promise<Boolean> {
     let deletedStatus;
     if(date_time!==undefined){
-      deletedStatus=await this.unitStatusRepository.delete({unit_id:unit_id,date_time:date_time});
+      const date= new Date(date_time.toLocaleDateString() +" "+date_time.toLocaleTimeString() +" GMT")
+      deletedStatus=await this.unitStatusRepository.delete({unit_id:unit_id,date_time:date});
     }else{
       deletedStatus=await this.unitStatusRepository.delete({unit_id:unit_id});
     }
