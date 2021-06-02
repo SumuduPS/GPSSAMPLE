@@ -31,7 +31,8 @@ export class UnitStatusService {
     
     let unitPositions;
     if(date_time!==undefined){
-      unitPositions=await this.unitStatusRepository.find({ where: { unit_id: unit_id ,date_time:date_time} });
+      const date= new Date(date_time.toLocaleDateString() +" "+date_time.toLocaleTimeString() +" GMT")
+      unitPositions=await this.unitStatusRepository.find({ where: { unit_id: unit_id ,date_time:date} });
     }
     else{
       unitPositions=await this.unitStatusRepository.find({ where: { unit_id: unit_id} });

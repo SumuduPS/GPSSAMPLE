@@ -10,7 +10,8 @@ export class DateScalar implements CustomScalar<String, Date> {
   }
 
   serialize(value: Date): String {
-    return value.toUTCString().toString() // value sent to the client
+    const date=value.getUTCFullYear() +  "-" + (value.getUTCMonth()+1) + "-"  + value.getUTCDate() +" "+value.getUTCHours() +":"+value.getUTCMinutes()+":"+value.getUTCSeconds()
+    return date.toString() // value sent to the client
   }
 
   parseLiteral(ast: ValueNode): Date {
