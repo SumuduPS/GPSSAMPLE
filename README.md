@@ -37,6 +37,13 @@ $ npm run test:cov
 ```
 set environment variables (.env file in the root)
 
+To run locally set db details in the .env file and npm run start
+
+To run with Dockerfile: (set db details in the .env file)
+1. docker build -t gpsservice .
+
+2. docker-compose up
+
 open http://localhost:3000/graphql
 
 sample:
