@@ -1,0 +1,31 @@
+version: '3.9'
+
+services: 
+
+    gpsservice:
+      image: gpsservice
+      container_name: gpsservice
+      ports:
+        - "3000:3000"
+      depends_on:
+      - postgres
+      
+    postgres:
+      image: postgres
+      container_name: postgres
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_PASSWORD: password
+        POSTGRES_USER: postgres
+        POSTGRES_DB: GPSSample
+        PG_DATA: var/lib/postgresql/data
+
+    pgadmin:
+      image: dpage/pgadmin4
+      container_name: pgadmin
+      ports:
+      - 5433:80
+      environment:
+      - PGADMIN_DEFAULT_EMAIL=dev@test.mail
+      - PGADMIN_DEFAULT_PASSWORD=123
