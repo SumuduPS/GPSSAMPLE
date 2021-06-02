@@ -13,10 +13,20 @@ export class UnitStatusService {
     private readonly unitStatusRepository: Repository<UnitStatus>,
   ) {}
 
+  /**
+   * retrieves unit status
+   * @returns UnitStatusOutput list
+   */
   async getUnitStatus(): Promise<UnitStatusOutput[]> {
     return await this.unitStatusRepository.find();
   }
 
+  /**
+   * retrieves unit status by unit_id and date_time
+   * @param unit_id 
+   * @param date_time 
+   * @returns UnitStatusOutput list
+   */
   async getUnitStatusById(unit_id:number,date_time?:Date): Promise<UnitStatusOutput[]> {
     
     let unitPositions;
@@ -29,6 +39,11 @@ export class UnitStatusService {
     return unitPositions;
   }
 
+  /**
+   * inserts unit status
+   * @param unitStatusInput 
+   * @returns success message
+   */
   async addUnitStatus(unitStatusInput: UnitStatusInput): Promise<String> {
     unitStatusInput['created']=new Date();
     let confirmationMessage:string;
@@ -43,6 +58,11 @@ export class UnitStatusService {
     return confirmationMessage;
   }
 
+  /**
+   * updates unit status
+   * @param unitStatusInput 
+   * @returns success message
+   */
   async updateUnitStatus(unitStatusInput: UnitStatusInput): Promise<String> {
     unitStatusInput['created']=new Date();
     let confirmationMessage:string;
@@ -57,6 +77,12 @@ export class UnitStatusService {
     return confirmationMessage;
   }
 
+  /**
+   * deletes unit status
+   * @param unit_id 
+   * @param date_time 
+   * @returns success or not
+   */
   async deleteUnitStatus(unit_id: number,date_time?:Date): Promise<Boolean> {
     let deletedStatus;
     if(date_time!==undefined){

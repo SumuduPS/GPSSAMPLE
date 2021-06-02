@@ -12,11 +12,20 @@ export class UnitPositionService {
     private readonly unitPositionRepository: Repository<UnitPosition>,
   ) {}
 
-  
+  /**
+   * Retrieves Unit Positions
+   * @returns UnitPositionOutput list
+   */
   async getUnitPosition(): Promise<UnitPositionOutput[]> {
     return await this.unitPositionRepository.find();
   }
 
+  /**
+   *Retrieves unit position by unit_id and date_time
+   * @param unit_id unit id
+   * @param date_time data time
+   * @returns UnitPositionOutput list
+   */
   async getUnitPositionById(unit_id:number,date_time?:Date): Promise<UnitPositionOutput[]> {
     
     let unitPositions;
@@ -29,6 +38,11 @@ export class UnitPositionService {
     return unitPositions;
   }
 
+  /**
+   * Inserts unit position
+   * @param unitPositionInput 
+   * @returns success message
+   */
   async addUnitPosition(unitPositionInput: UnitPositionInput): Promise<String> {
     unitPositionInput['created']=new Date();
     let confirmationMessage:string;
@@ -43,6 +57,11 @@ export class UnitPositionService {
     return confirmationMessage;
   }
 
+  /**
+   * updates unit position
+   * @param unitPositionInput 
+   * @returns success message
+   */
   async updateUnitPosition(unitPositionInput: UnitPositionInput): Promise<String> {
     unitPositionInput['created']=new Date();
     let confirmationMessage:string;
@@ -57,6 +76,12 @@ export class UnitPositionService {
     return confirmationMessage;
   }
 
+  /**
+   * deletes unit position
+   * @param unit_id 
+   * @param date_time 
+   * @returns success or not
+   */
   async deleteUnitPosition(unit_id: number,date_time?:Date): Promise<Boolean> {
     let deletedStatus;
     if(date_time!==undefined){

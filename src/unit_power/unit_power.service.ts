@@ -12,10 +12,20 @@ export class UnitPowerService {
     private readonly unitPowerRepository: Repository<UnitPower>,
   ) {}
 
+  /**
+   * retrieves unit power
+   * @returns UnitPowerOutput list
+   */
   async getUnitPower(): Promise<UnitPowerOutput[]> {
     return await this.unitPowerRepository.find();
   }
 
+  /**
+   * retrieves unit power by unit_id and date_time
+   * @param unit_id 
+   * @param date_time 
+   * @returns UnitPowerOutput list
+   */
   async getUnitPowerById(unit_id:number,date_time?:Date): Promise<UnitPowerOutput[]> {
     
     let unitPositions;
@@ -28,6 +38,11 @@ export class UnitPowerService {
     return unitPositions;
   }
 
+  /**
+   * inserts unit power
+   * @param unitPowerInput 
+   * @returns success message
+   */
   async addUnitPower(unitPowerInput: UnitPowerInput): Promise<String> {
     unitPowerInput['created']=new Date();
     let confirmationMessage:string;
@@ -42,6 +57,11 @@ export class UnitPowerService {
     return confirmationMessage;
   }
 
+  /**
+   * updates unit power
+   * @param unitPowerInput 
+   * @returns success message
+   */
   async updateUnitPower(unitPowerInput: UnitPowerInput): Promise<String> {
     unitPowerInput['created']=new Date();
     let confirmationMessage:string;
@@ -56,6 +76,12 @@ export class UnitPowerService {
     return confirmationMessage;
   }
 
+  /**
+   * deletes unit power
+   * @param unit_id 
+   * @param date_time 
+   * @returns success or not
+   */
   async deleteUnitPower(unit_id: number,date_time?:Date): Promise<Boolean> {
     let deletedStatus;
     if(date_time!==undefined){
