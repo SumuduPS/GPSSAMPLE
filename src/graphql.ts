@@ -33,16 +33,16 @@ export interface UnitStatusInput {
     msg?: string;
 }
 
-export interface IMutation {
-    addUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
-    updateUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
-    deleteUnitPosition(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
-    addUnitPower(unitPowerInput?: UnitPowerInput): string | Promise<string>;
-    updateUnitPower(unitPowerInput?: UnitPowerInput): string | Promise<string>;
-    deleteUnitPower(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
-    addUnitStatus(unitStatusInput?: UnitStatusInput): string | Promise<string>;
-    updateUnitStatus(unitStatusInput?: UnitStatusInput): string | Promise<string>;
-    deleteUnitStatus(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
+export interface UnitPositionOutput {
+    date_time?: Date;
+    unit_id?: number;
+    latitude?: number;
+    longitude?: number;
+    speed?: number;
+    bearing?: number;
+    hdop?: number;
+    satellites?: number;
+    created?: Date;
 }
 
 export interface IQuery {
@@ -54,16 +54,16 @@ export interface IQuery {
     getUnitStatusById(unit_id?: number, date_time?: Date): UnitStatusOutput[] | Promise<UnitStatusOutput[]>;
 }
 
-export interface UnitPositionOutput {
-    date_time?: Date;
-    unit_id?: number;
-    latitude?: number;
-    longitude?: number;
-    speed?: number;
-    bearing?: number;
-    hdop?: number;
-    satellites?: number;
-    created?: Date;
+export interface IMutation {
+    addUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
+    updateUnitPosition(unitPositionInput?: UnitPositionInput): string | Promise<string>;
+    deleteUnitPosition(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
+    addUnitPower(unitPowerInput?: UnitPowerInput): string | Promise<string>;
+    updateUnitPower(unitPowerInput?: UnitPowerInput): string | Promise<string>;
+    deleteUnitPower(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
+    addUnitStatus(unitStatusInput?: UnitStatusInput): string | Promise<string>;
+    updateUnitStatus(unitStatusInput?: UnitStatusInput): string | Promise<string>;
+    deleteUnitStatus(unit_id?: number, date_time?: Date): boolean | Promise<boolean>;
 }
 
 export interface UnitPowerOutput {
