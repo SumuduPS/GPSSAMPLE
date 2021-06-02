@@ -32,3 +32,37 @@ $ npm run test:cov
 ```
 
 
+# Output Samples
+
+```
+open http://localhost:3000/graphql
+
+sample:
+
+query{
+  getUnitPosition{
+    date_time 
+    unit_id   
+    latitude  
+    longitude 
+    speed     
+    bearing   
+    hdop      
+    satellites
+    created   
+  }
+}
+
+mutation{
+addUnitPosition(unitPositionInput:{
+    date_time:"6/2/2021" 
+    unit_id:20   
+    latitude:-104.0392
+    longitude: 50.9655
+    speed: 0     
+    bearing: 91.2
+    hdop: 12     
+    satellites:8  
+})
+}
+```
