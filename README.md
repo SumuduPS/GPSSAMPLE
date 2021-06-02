@@ -35,6 +35,8 @@ $ npm run test:cov
 # Output Samples
 
 ```
+set environment variables (.env file in the root)
+
 open http://localhost:3000/graphql
 
 sample:
