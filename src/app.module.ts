@@ -11,6 +11,8 @@ import { UnitPowerModule } from './unit_power/unit_power.module';
 import { UnitPower } from './unit_power/unit_power.entity';
 import { UnitStatusModule } from './unit_status/unit_status.module';
 import { UnitStatus } from './unit_status/unit_status.entity';
+import { UnitMap } from './unit_map/unit_map.entity';
+import { UnitMapModule } from './unit_map/unit_map.module';
 
 @Module({
   imports: [
@@ -19,7 +21,8 @@ import { UnitStatus } from './unit_status/unit_status.entity';
       typePaths: ['./**/*.graphql'],
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
-      }
+      },
+      uploads: false,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -28,12 +31,13 @@ import { UnitStatus } from './unit_status/unit_status.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [UnitPosition,UnitPower,UnitStatus],
+      entities: [UnitPosition,UnitPower,UnitStatus,UnitMap],
       synchronize: true,
     }),
     UnitPositionModule,
     UnitPowerModule,
-    UnitStatusModule
+    UnitStatusModule,
+    UnitMapModule
   ],
   controllers: [],
   providers: [AppService,DateScalar],
