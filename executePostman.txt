@@ -1,0 +1,1 @@
+{ "query": "mutation($upload:Upload){\n  addUnitMap(unitMapInput:{id:6 version:1 poly_j:\"asas\" poly_t:$upload}) { id } }", "variables": { "upload": null } }
