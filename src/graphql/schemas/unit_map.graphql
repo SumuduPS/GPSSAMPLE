@@ -1,0 +1,27 @@
+scalar Date
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UnitMapOutput{
+    id: Int    
+    version:Int
+    poly_j: String
+    poly_t:String
+    created: Date
+}
+
+input UnitMapInput{
+    id:Int
+    version: Int
+    poly_j:String
+    poly_t:Upload
+}
+
+type Query {
+    getUnitMap: [UnitMapOutput]
+} 
+
+type Mutation{
+    addUnitMap(unitMapInput: UnitMapInput):UnitMapOutput
+}
